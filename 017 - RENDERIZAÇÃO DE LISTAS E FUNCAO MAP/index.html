@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="root"></div>   
+
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  
+    <script type="text/babel">
+
+
+        
+        class App extends React.Component{
+            
+            
+            render(){
+
+                const nomes = [
+                    'Dimas', 
+                    'Priscilla', 
+                    'Isabella'
+                    ]
+                const pessoas = [
+                    {
+                        nome: "Dimas",
+                        profissao: "Programador"
+                    },
+                    {
+                        nome: "Priscilla",
+                        profissao: "Advogada"
+                    },
+                    {
+                        nome: "Isabella",
+                        profissao: "Estudante"
+                    },
+                ]
+
+
+    
+                const final = pessoas.map(pessoa => <h3>{pessoa.nome} exerce a profissão de {pessoa.profissao}</h3>)
+
+                return(
+                    <div>
+                        {final}                                                
+                    </div>
+                )
+            }
+        }
+
+            
+        //-------------------------------------
+        ReactDOM.render(
+          <App />, 
+          document.getElementById('root')
+        )
+
+
+     
+       
+    </script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="root"></div>   
+
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  
+    <script type="text/babel">
+
+        
+        class CompNome extends React.Component{
+
+            constructor(props){
+                super(props)
+                this.state = {
+                    nome: this.props.nome_inicial
+
+                }
+
+                // binding
+                this.cmd_click = this.cmd_click.bind(this)
+
+            }
+
+            cmd_click(){
+                this.setState({nome: this.props.nome_final})
+            }
+
+            render(){
+                return(
+                    <div>
+                        <p>Nome: {this.state.nome}</p>
+                        <button onClick={this.cmd_click}>Alterar</button>
+                    </div>
+                )
+            }
+
+        }
+        
+        //-------------------------------------
+        class App extends React.Component{
+            render(){
+                return(
+                    <div>
+                        <h3>Exercício</h3>
+                        <hr/>
+                        <CompNome nome_inicial="Dimas" nome_final="Neto"/>
+                        <CompNome nome_inicial="Bob" nome_final="Thomas"/>
+                        <CompNome nome_inicial="Michel" nome_final="Jordan"/>
+                    </div>
+                )
+            }
+        }
+
+          
+        //-------------------------------------
+        ReactDOM.render(
+          <App />, 
+          document.getElementById('root')
+        )
+       
+    </script>
+</body>
+</html>

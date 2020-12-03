@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="root"></div>   
+
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  
+    <script type="text/babel">
+
+        class App extends React.Component{
+
+            render(){
+
+                const noticias = [
+                    {
+                        titulo: "Notícia 1",
+                        texto: "Texto da notícia 1",
+                        autor: "Autor 1"
+                    },
+                    {
+                        titulo: "Notícia 2",
+                        texto: "Texto da notícia 2",
+                        autor: "Autor 2"
+                    },
+                    {
+                        titulo: "Notícia 3",
+                        texto: "Texto da notícia 3",
+                        autor: "Autor 3"
+                    }
+                ]
+
+                // preparação do component child Noticia
+
+                const final = noticias.map(noticia => <Noticia noticia={noticia}/>)
+
+                return(
+                    <div>
+                        <h2>Notícias</h2>
+                        <hr />
+                        {final}
+                    </div>
+                )
+            }
+        }
+        
+        class Noticia extends React.Component{
+
+            constructor(props){
+                super(props)
+            }
+
+            render(){
+                return(
+                    <div>
+                        <h3>{this.props.noticia.titulo}</h3>
+                        <p>{this.props.noticia.texto}</p>
+                        <small><i>{this.props.autor}</i></small>
+                    </div>
+                )
+            }
+        }
+        
+
+            
+        //-------------------------------------
+        ReactDOM.render(
+          <App />, 
+          document.getElementById('root')
+        )
+
+
+     
+       
+    </script>
+</body>
+</html>

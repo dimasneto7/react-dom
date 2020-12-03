@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="root"></div>   
+
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  
+    <script type="text/babel">
+
+
+        //parent
+        class App extends React.Component{
+
+            metodo(texto){
+                console.log(texto);
+            }
+
+          
+            render(){
+                return(
+                    <div>
+                        <p>Texto do componente pai</p>
+                        <Child evento={this.metodo}/>
+                    </div>
+                )
+            }
+        }
+
+        //child
+        class Child extends React.Component{
+
+            render(){
+                return(
+                    <div>
+                      <button onClick={() =>this.props.evento('Olá Mundo')}>Clicar</button>
+                    </div>
+
+                    
+                )
+            }
+        }
+       
+          
+        //-------------------------------------
+        ReactDOM.render(
+          <App />, 
+          document.getElementById('root')
+        )
+       
+    </script>
+</body>
+</html>
